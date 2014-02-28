@@ -37,6 +37,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="code/MyArray.h" />
+		<Unit filename="code/input_output_array.cpp" />
 		<Unit filename="code/my_exception.h" />
 		<Unit filename="code/myarr_main.cpp" />
 		<Unit filename="code/rat_num_main.cpp" />

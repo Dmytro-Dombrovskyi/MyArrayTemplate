@@ -160,6 +160,16 @@ void WriteInFile (const MyArray<V> &a, const char * filename) {
 	outFile.close ();
 }
 /////////////////////////////////////////////////////////////
+template <typename V>
+void WriteInFileArray(const MyArray<V> *ptrArr, const size_t i_size, const char *filename) {
+	std::ofstream outFile;
+	outFile.open(filename, std::ios::out);
+	for(size_t i = 0; i < i_size; ++i) {
+		outFile << ptrArr[i] << "\n";
+	}
+	outFile.close();
+}
+/////////////////////////////////////////////////////////////
 // read data into class object from file
 template <typename V>
 void GetFromFile (MyArray<V> &a, const char * filename) {

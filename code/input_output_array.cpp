@@ -16,10 +16,16 @@ int main() {
       }
    }
    catch(std::exception &ex) { std::cerr << ex.what(); }
-
+   // git info on console:
    for(int i = 0; i < counter; ++i) {
       cout << write[i] << endl;
    }
+   // writing in file
+   try {
+          WriteInFileArray(write, counter, "input_output_array.txt");
+   }
+   catch (std::exception &ex) { std::cerr << ex.what(); }
+
 
    return 0;
 }
