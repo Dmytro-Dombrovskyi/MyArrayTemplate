@@ -9,6 +9,7 @@
 #include <exception>
 #include <stdexcept>
 #include "my_exception.h"
+
 using std::exception;
 
 template <typename T>
@@ -52,41 +53,38 @@ public:
 // constructor
 template<typename T>
 MyArray<T>::MyArray (T num, size_t i_size) : size (i_size) {
-	if(size == 0)
-		arr = nullptr;
-	else {		
-		arr = new T[size]; // get new memory with new parametrs
-		for(size_t i = 0; i < size; i++) {
-			arr[i] = num; // initializing object data array in 0
-		}		
+	if(size) {
+		arr = new T[size];
+		for(size_t i = 0; i < size; i++)
+			arr[i] = num;
 	}
+	else
+		arr = nullptr;
 }
 ///////////////////////////////////////////////////////////
 // copy constructor
 template<typename T>
 MyArray<T>::MyArray (const MyArray<T> &a) : size (a.size) {
-	if(size == 0) {
-		arr = nullptr;
-	}
-	else {		
+	if(size) {
 		arr = new T[size];
-		for(size_t i = 0; i < size; i++) { // copy data in array with new memory
+		for(size_t i = 0; i < size; i++)
 			arr[i] = a.arr[i];
-		}		
 	}
+	else
+		arr = nullptr;
 }
 //////////////////////////////////////////////////////////
 // assignment constructor
 template <typename T>
 MyArray<T> & MyArray<T>::operator=(const MyArray<T> &a) {
-	if(this != &a) { // checking the object		
+	if(this != &a) { // checking the object
 		T *temp = new T[a.size];
 		for(size_t i = 0; i < a.size; i++) { // copy data in array with new memory
 			temp[i] = a.arr[i];
 		}
 		delete[] arr; // delete the memory
 		arr = temp;
-		size = a.size;		
+		size = a.size;
 	}
 	return *this;
 }
@@ -94,7 +92,7 @@ MyArray<T> & MyArray<T>::operator=(const MyArray<T> &a) {
 // function reset
 template <typename T>
 MyArray<T> & MyArray<T>::Resize (size_t new_size) {
-	if(new_size != size) {		
+	if(new_size != size) {
 		T *temp = new T[new_size];
 		// write the value from the this object
 		if(size > new_size) {	// if new size is less than old size
@@ -112,7 +110,7 @@ MyArray<T> & MyArray<T>::Resize (size_t new_size) {
 		}
 		delete[]arr;
 		arr = temp; // assignment pointer new block of memory
-		size = new_size; // assignment new size		
+		size = new_size; // assignment new size
 	}
 	return *this;
 }
@@ -134,7 +132,7 @@ std::ostream & operator<<(std::ostream &os, const MyArray<T> &a) {
 // read data to object
 template <typename T>
 std::istream & operator>>(std::istream &os, MyArray<T> &a) {
-	size_t tempSize;	
+	size_t tempSize;
 	os >> tempSize;
 	if(tempSize) {
 		T *temp = new T[tempSize]; // temporary pointer with new memory
@@ -149,7 +147,7 @@ std::istream & operator>>(std::istream &os, MyArray<T> &a) {
 		delete[]a.arr;
 		a.arr = temp; // point pointer to new memory
 		a.size = tempSize;
-	}	
+	}
 	return os;
 }
 //////////////////////////////////////////////////////////////
@@ -159,27 +157,27 @@ void WriteInFile (const MyArray<V> &a, const char * filename) {
 	std::ofstream outFile; // creating the class object
 	outFile.open (filename, std::ios::out);
 	outFile << a;
-	outFile.close ();		
+	outFile.close ();
 }
 /////////////////////////////////////////////////////////////
 // read data into class object from file
 template <typename V>
 void GetFromFile (MyArray<V> &a, const char * filename) {
-	std::ifstream inFile; // create an object	
+	std::ifstream inFile; // create an object
 	inFile.open (filename, std::ios::in);
-	while(inFile.good ()) {	inFile >> a; }	
+	while(inFile.good ()) {	inFile >> a; }
 	inFile.close ();
 }
 /////////////////////////////////////////////////////////////
 // operators +=, -=, *=, /=.
 template <typename T>
-MyArray<T> & MyArray<T>::operator+=(const MyArray<T> &a) {	
+MyArray<T> & MyArray<T>::operator+=(const MyArray<T> &a) {
 	if(size != a.size) { throw fail_size_array (size, a.size); }
 	else {
 		for(size_t i = 0; i < size; i++) {
 			arr[i] += a.arr[i];
 		}
-	}	
+	}
 	return *this;
 }
 template <typename T>
@@ -192,21 +190,21 @@ MyArray<T> & MyArray<T>::operator-=(const MyArray &a) {
 	return *this;
 }
 template <typename T>
-MyArray<T> & MyArray<T>::operator*=(const MyArray &a) {	
-	if(size == a.size) {		
+MyArray<T> & MyArray<T>::operator*=(const MyArray &a) {
+	if(size == a.size) {
 		for(size_t i = 0; i < size; i++) {
 			arr[i] *= a.arr[i];
 		}
-	}	
+	}
 	return *this;
 }
 template <typename T>
 MyArray<T> & MyArray<T>::operator/=(const MyArray &a) {
-	if(size == a.size) { 
+	if(size == a.size) {
 		for(size_t i = 0; i < size; i++) {
 			arr[i] /= a.arr[i];
 		}
-	}	
+	}
 	return *this;
 }
 //////////////////////////////////////////////////////////////////////////
