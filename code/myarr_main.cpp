@@ -4,7 +4,7 @@
 using std::cout;
 using std::endl;
 using std::cin;
-
+#if 0
 int main () {
 	//// 1. Test methods of class += , -=, /=, *=.
 	//MyArray<double> a1 (5, 5);
@@ -43,7 +43,7 @@ int main () {
 		std::cerr << ex.what ();
 	}
 	cout << endl << "Data in \'c\': " << endl;
-	cout << c << endl;	
+	cout << c << endl;
 	////////////////////////////////////////////////////
 	// part 2!!!
 	// rational number in array:
@@ -75,7 +75,7 @@ int main () {
 	//}
 	//cout << endl;
 	///////////////////////////////////////////////////////////
-	//// part 4!!!	
+	//// part 4!!!
 	//rational_number a (1, 3);
 	//rational_number b (3, 5);
 	//// using operators for comparing numbers of objects: >, <, == ...
@@ -86,7 +86,7 @@ int main () {
 	//cout << a << " <= " << b << " ? " << (a <= b) << endl;
 	//cout << a << " == " << b << " ? " << (a == b) << endl;
 	//cout << a << " != " << b << " ? " << (a != b) << endl;
-	//cout << "Compare rational number with random value: " 
+	//cout << "Compare rational number with random value: "
 	//		 << a << endl;
 	//cout << a << " > " << 3 << " ? " << (a > 3) << endl;
 	//cout << a << " < " << 3 << " ? " << (a < 3) << endl;
@@ -107,6 +107,6 @@ int main () {
 	// using operator +, - , *, / which are work with elements:
 	//cout << a * b << endl;
 	cout << "Done!" << endl;
-	cin.get(); cin.get();
 	return 0;
 }
+#endif

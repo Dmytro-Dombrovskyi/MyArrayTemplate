@@ -172,14 +172,16 @@ void GetFromFile (MyArray<V> &a, const char * filename) {
 // operators +=, -=, *=, /=.
 template <typename T>
 MyArray<T> & MyArray<T>::operator+=(const MyArray<T> &a) {
-	if(size != a.size) { throw fail_size_array (size, a.size); }
-	else {
-		for(size_t i = 0; i < size; i++) {
+	if(size == a.size) {
+		for(size_t i = 0; i < size; i++)
 			arr[i] += a.arr[i];
-		}
+	}
+	else {
+		throw fail_size_array (size, a.size);
 	}
 	return *this;
 }
+/////////////////////////////////////////////////////////////
 template <typename T>
 MyArray<T> & MyArray<T>::operator-=(const MyArray &a) {
 	if(size == a.size) {
@@ -187,24 +189,33 @@ MyArray<T> & MyArray<T>::operator-=(const MyArray &a) {
 			arr[i] -= a.arr[i];
 		}
 	}
+	else {
+		throw fail_size_array (size, a.size);
+	}
 	return *this;
 }
+//////////////////////////////////////////////////////////////
 template <typename T>
 MyArray<T> & MyArray<T>::operator*=(const MyArray &a) {
 	if(size == a.size) {
-		for(size_t i = 0; i < size; i++) {
+		for(size_t i = 0; i < size; i++)
 			arr[i] *= a.arr[i];
-		}
 	}
+	else
+		throw fail_size_array (size, a.size);
+
 	return *this;
 }
+/////////////////////////////////////////////////////////////
 template <typename T>
 MyArray<T> & MyArray<T>::operator/=(const MyArray &a) {
 	if(size == a.size) {
-		for(size_t i = 0; i < size; i++) {
+		for(size_t i = 0; i < size; i++)
 			arr[i] /= a.arr[i];
-		}
 	}
+	else
+		throw fail_size_array (size, a.size);
+
 	return *this;
 }
 //////////////////////////////////////////////////////////////////////////

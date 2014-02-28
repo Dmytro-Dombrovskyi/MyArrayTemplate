@@ -61,3 +61,40 @@
 	"rational_number.h"
 	"my_exception.h"
 
+1393594355 source:e:\git_repo\myarraytemplate\code\myarr_main.cpp
+	<iostream>
+	"MyArray.h"
+	"rational_number.h"
+
+1393593917 e:\git_repo\myarraytemplate\code\myarray.h
+	<iostream>
+	<fstream>
+	<string>
+	<cstdlib>
+	<exception>
+	<stdexcept>
+	"my_exception.h"
+
+1392716708 e:\git_repo\myarraytemplate\code\my_exception.h
+	<iostream>
+	<exception>
+	<stdexcept>
+	<cstdlib>
+
+1392716449 e:\git_repo\myarraytemplate\code\rational_number.h
+	<iostream>
+	<fstream>
+
+1393591196 source:e:\git_repo\myarraytemplate\code\rat_num_main.cpp
+	"rational_number.h"
+
+1392715133 source:e:\git_repo\myarraytemplate\code\rational_number.cpp
+	"rational_number.h"
+	"my_exception.h"
+
+1393596671 source:e:\git_repo\myarraytemplate\code\input_output_array.cpp
+	<iostream>
+	"MyArray.h"
+	"rational_number.h"
+	<ctime>
+
