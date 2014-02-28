@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1392384287 source:e:\bkt_programs2014\homework_13_02_2014\templates\myarray_templ\myarr_main.cpp
+	<iostream>
+	"MyArray.h"
+	"rational_number.h"
+
+1392392992 e:\bkt_programs2014\homework_13_02_2014\templates\myarray_templ\myarray.h
+	<iostream>
+	<fstream>
+	<string>
+	<cstdlib>
+	<exception>
+	<stdexcept>
+	"my_exception.h"
+
+1392392392 e:\bkt_programs2014\homework_13_02_2014\templates\myarray_templ\rational_number.h
+	<iostream>
+	<fstream>
+
+1392393040 source:e:\bkt_programs2014\homework_13_02_2014\templates\myarray_templ\rational_number.cpp
+	"rational_number.h"
+	"my_exception.h"
+
+1392392539 source:e:\bkt_programs2014\homework_13_02_2014\templates\myarray_templ\rat_num_main.cpp
+	"rational_number.h"
+
+1392393015 e:\bkt_programs2014\homework_13_02_2014\templates\myarray_templ\my_exception.h
+	<iostream>
+	<exception>
+	<stdexcept>
+	<cstdlib>
+
+1392718889 source:e:\git_repo\templates\array_cb\code\myarr_main.cpp
+	<iostream>
+	"MyArray.h"
+	"rational_number.h"
+
+1393590090 e:\git_repo\templates\array_cb\code\myarray.h
+	<iostream>
+	<fstream>
+	<string>
+	<cstdlib>
+	<exception>
+	<stdexcept>
+	"my_exception.h"
+
+1392716708 e:\git_repo\templates\array_cb\code\my_exception.h
+	<iostream>
+	<exception>
+	<stdexcept>
+	<cstdlib>
+
+1392716449 e:\git_repo\templates\array_cb\code\rational_number.h
+	<iostream>
+	<fstream>
+
+1392392539 source:e:\git_repo\templates\array_cb\code\rat_num_main.cpp
+	"rational_number.h"
+
+1392715133 source:e:\git_repo\templates\array_cb\code\rational_number.cpp
+	"rational_number.h"
+	"my_exception.h"
+
