@@ -25,7 +25,7 @@ int main() {
    const char * filename = "input_output_array.txt";
    try {
           WriteInFileArray(write, counter, filename);
-          GetFromFile(Read[0], filename);
+          GetFromFileArray(Read, counter, filename);
    }
    catch (std::exception &ex) { std::cerr << ex.what(); }
    cout << endl;
