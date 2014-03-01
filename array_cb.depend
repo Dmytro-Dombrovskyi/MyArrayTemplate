@@ -98,3 +98,40 @@
 	"rational_number.h"
 	<ctime>
 
+1393667485 source:d:\dima\git_repo\myarraytemplate\code\input_output_array.cpp
+	<iostream>
+	"MyArray.h"
+	"rational_number.h"
+	<ctime>
+
+1393667925 d:\dima\git_repo\myarraytemplate\code\myarray.h
+	<iostream>
+	<fstream>
+	<string>
+	<cstdlib>
+	<exception>
+	<stdexcept>
+	"my_exception.h"
+
+1393666553 d:\dima\git_repo\myarraytemplate\code\my_exception.h
+	<iostream>
+	<exception>
+	<stdexcept>
+	<cstdlib>
+
+1393666553 d:\dima\git_repo\myarraytemplate\code\rational_number.h
+	<iostream>
+	<fstream>
+
+1393666553 source:d:\dima\git_repo\myarraytemplate\code\myarr_main.cpp
+	<iostream>
+	"MyArray.h"
+	"rational_number.h"
+
+1393666553 source:d:\dima\git_repo\myarraytemplate\code\rat_num_main.cpp
+	"rational_number.h"
+
+1393666553 source:d:\dima\git_repo\myarraytemplate\code\rational_number.cpp
+	"rational_number.h"
+	"my_exception.h"
+
