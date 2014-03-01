@@ -25,10 +25,10 @@ int main() {
    const char * filename = "input_output_array.txt";
    try {
           WriteInFileArray(write, counter, filename);
-          GetFromFileArray(Read, counter, filename);
+          GetFromFile(Read[0], filename);
    }
    catch (std::exception &ex) { std::cerr << ex.what(); }
-
+   cout << endl;
    for(int i = 0; i < counter; ++i) {
       cout << Read[i] << endl;
    }

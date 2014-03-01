@@ -150,6 +150,10 @@ std::istream & operator>>(std::istream &os, MyArray<T> &a) {
 	}
 	return os;
 }
+template <typename T>
+std::operator &istream>>(std::istream &os, MyArray<T> *ptrArr) {
+
+}
 //////////////////////////////////////////////////////////////
 // read data into new file and than read from that file:
 template <typename V>
@@ -181,12 +185,12 @@ void GetFromFile (MyArray<V> &a, const char * filename) {
 //////////////////////////////////////////////////////////////////
 // read data into class array from file
 template <typename V>
-void GerFromFileArray(const MyArray<V> *ptrArr, const size_t i_size,
+void GetFromFileArray(const MyArray<V> *ptrArr, const size_t i_size,
                       const char *filename) {
    std::ifstream inFile;
    inFile.open(filename, std::ios::in);
    while(inFile.good()) {
-      for(int i = 0; i < i_size; ++i) {
+      for(size_t i = 0; i < i_size; ++i) {
          inFile >> ptrArr[i];
       }
    }
