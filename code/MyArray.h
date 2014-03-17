@@ -153,30 +153,6 @@ std::istream & operator>>(std::istream &os, MyArray<T> &a) {
 	return os;
 }
 ///////////////////////////////////////////////////////////////
-// read data from object into array
-template <typename T>
-std::istream & operator>>(std::istream &os, MyArray<T> *ptrArr) {
-	size_t tempArrSize;
-   os >> tempArrSize;
-   ptrArr = new MyArray<T>[tempArrSize];
-		for(size_t i = 0; i < tempArrSize; ++i) {
-			//size_t tempSize;
-			os >> ptrArr[i]->size;
-			if(ptrArr[i]->size) {
-				ptrArr[i]->arr = new T[ptrArr[i]->size]; // temporary pointer with new memory
-				char symbol;
-				size_t j = 0;
-				while(j < tempSize) {
-					os >> symbol; // if you write from console you have to write comma after value
-					if(symbol == ',' || symbol == ']' || symbol == '[')
-						os >> temp[j];
-					++j;
-				}
-			}
-		//}
-	return os;
-}
-//////////////////////////////////////////////////////////////
 // read data into new file and than read from that file:
 template <typename V>
 void WriteInFile (const MyArray<V> &a, const char * filename) {
@@ -208,11 +184,21 @@ void GetFromFile (MyArray<V> &a, const char * filename) {
 //////////////////////////////////////////////////////////////////
 // read data into class array from file
 template <typename V>
-void GetFromFileArray(const MyArray<V> *ptrArr,	const char *filename) {
+void GetFromFileArray(MyArray<V> *ptrArr, const char *filename) {
 	std::ifstream inFile;
    inFile.open(filename, std::ios::in);
-   while(inFile.good()) { inFile >> ptrArr; }
+   if(!inFile.is_open())
+      throw std::ios_base::failure("Error open file!");
+
+   while(inFile.good()) {
+      size_t size_array;
+      inFile >> size_array;
+      ptrArr = new MyArray<V>[size_array];
+      for(size_t i = 0; i < size_array; ++i) {
+         inFile >> ptrArr[i];
+      }
    inFile.close();
+   }
 }
 /////////////////////////////////////////////////////////////
 // operators +=, -=, *=, /=.

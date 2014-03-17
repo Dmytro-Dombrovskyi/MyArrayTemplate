@@ -6,15 +6,9 @@
 #include <stdexcept>
 #include <cstdlib>
 
-class fail_open_file : public std::exception {
-private:
-	std::string file_;
-	std::string str_problem;
+class fail_open_file : public std::ios_base::failure {
 public:
-	explicit fail_open_file (const char * i_filename,
-													 const char * i_problem = "Error! Couldn't open file: ") :
-		file_(i_filename), str_problem(i_problem) {}
-	const std::string & what () { return str_problem.append(file_); }
+	const char* what () { return "Error open file."; }
 };
 
 class fail_read_file : public std::exception {
