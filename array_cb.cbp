@@ -43,6 +43,7 @@
 		<Unit filename="code/rat_num_main.cpp" />
 		<Unit filename="code/rational_number.cpp" />
 		<Unit filename="code/rational_number.h" />
+		<Unit filename="input_output_array.txt" />
 		<Extensions>
 			<code_completion />
 			<envvars />
