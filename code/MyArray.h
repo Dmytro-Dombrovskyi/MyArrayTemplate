@@ -19,6 +19,8 @@ template <typename T>
 std::ostream & operator<<(std::ostream &os, const MyArray<T> &a);
 template <typename T>
 std::istream & operator>>(std::istream &os, MyArray<T> &a);
+template <typename T>
+std::istream & operator>>(std::istream &os, MyArray<T> *ptrArr);
 
 ////////////////////////////////////////////////////////////
 
@@ -150,7 +152,30 @@ std::istream & operator>>(std::istream &os, MyArray<T> &a) {
 	}
 	return os;
 }
-
+///////////////////////////////////////////////////////////////
+// read data from object into array
+template <typename T>
+std::istream & operator>>(std::istream &os, MyArray<T> *ptrArr) {
+	size_t tempArrSize;
+   os >> tempArrSize;
+   ptrArr = new MyArray<T>[tempArrSize];
+		for(size_t i = 0; i < tempArrSize; ++i) {
+			//size_t tempSize;
+			os >> ptrArr[i]->size;
+			if(ptrArr[i]->size) {
+				ptrArr[i]->arr = new T[ptrArr[i]->size]; // temporary pointer with new memory
+				char symbol;
+				size_t j = 0;
+				while(j < tempSize) {
+					os >> symbol; // if you write from console you have to write comma after value
+					if(symbol == ',' || symbol == ']' || symbol == '[')
+						os >> temp[j];
+					++j;
+				}
+			}
+		//}
+	return os;
+}
 //////////////////////////////////////////////////////////////
 // read data into new file and than read from that file:
 template <typename V>
@@ -165,6 +190,7 @@ template <typename V>
 void WriteInFileArray(const MyArray<V> *ptrArr, const size_t i_size, const char *filename) {
 	std::ofstream outFile;
 	outFile.open(filename, std::ios::out);
+	outFile << i_size << "\n";
 	for(size_t i = 0; i < i_size; ++i) {
 		outFile << ptrArr[i] << "\n";
 	}
@@ -182,12 +208,10 @@ void GetFromFile (MyArray<V> &a, const char * filename) {
 //////////////////////////////////////////////////////////////////
 // read data into class array from file
 template <typename V>
-void GetFromFileArray(const MyArray<V> *ptrArr, const size_t i_size,
-                      const char *filename) {
-   std::ifstream inFile;
+void GetFromFileArray(const MyArray<V> *ptrArr,	const char *filename) {
+	std::ifstream inFile;
    inFile.open(filename, std::ios::in);
-   while(inFile.good()) {
-         inFile >> ptrArr }
+   while(inFile.good()) { inFile >> ptrArr; }
    inFile.close();
 }
 /////////////////////////////////////////////////////////////
